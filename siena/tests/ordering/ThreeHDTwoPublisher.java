@@ -3,14 +3,14 @@ package psl.events.siena.tests.ordering;
 import siena.*;
 
 /**
- * Ordering test for three HD's (1 for each publisher, 1subscriber, 1 master).
+ * Ordering test for four HD's (two publishers, one subscriber, one master).
  *
  * @author Janak J Parekh
  * @version $Revision$
  */
-public class FourHDTwoPublisher implements Notifiable, Runnable {
+public class ThreeHDTwoPublisher implements Notifiable, Runnable {
   public static final int numNotifications = 500;
-  private static HierarchicalDispatcher pd = null;
+  private HierarchicalDispatcher hd = null;
   private long publisherID = -2;
   private long lastReceived[] = {-1, -1};
   
@@ -24,8 +24,8 @@ public class FourHDTwoPublisher implements Notifiable, Runnable {
     }
     
     if(args[0].equals("-p")) {
-      Thread t1 = new Thread(new ThreeHDTwoPublisher(args[1], 0));
-      Thread t2 = new Thread(new ThreeHDTwoPublisher(args[1], 1));
+      Thread t1 = new Thread(new FourHDTwoPublisher(args[1], 0));
+      Thread t2 = new Thread(new FourHDTwoPublisher(args[1], 1));
       t1.start();
       t2.start();
     } else { // Subscriber
@@ -36,28 +36,20 @@ public class FourHDTwoPublisher implements Notifiable, Runnable {
   /**
    * CTOR.
    */
-  public FourHDTwoPublisher(String master, long publisherID) {
-    if(publisherID >= 0 && pd == null) { // Make just ONE HierarchicalDispatcher
-      try {
-        pd = new HierarchicalDispatcher();
-        pd.setReceiver(new TCPPacketReceiver(0));
-        pd.setMaster(master);
-      } catch(Exception e) { e.printStackTrace(); }
-    }
+  public ThreeHDTwoPublisher(String master, long publisherID) {
+    try {
+      hd = new HierarchicalDispatcher();
+      hd.setReceiver(new TCPPacketReceiver(0),1);
+      hd.setMaster(master);
+    } catch(Exception e) { e.printStackTrace(); }
     
     this.publisherID = publisherID;
     
-    if(publisherID == -1) { // Receiver
-      HierarchicalDispatcher sd = new HierarchicalDispatcher();
-      try {
-        sd = new HierarchicalDispatcher();
-        sd.setReceiver(new TCPPacketReceiver(0),1);
-        sd.setMaster(master);
-      } catch(Exception e) { e.printStackTrace(); }
-      subscribe(sd);
+    if(publisherID == -1) {
+      subscribe();
     } /* Else the run method for the publisher */
   }
-  
+    
   /**
    * Publisher mode
    */
@@ -68,22 +60,22 @@ public class FourHDTwoPublisher implements Notifiable, Runnable {
       n.putAttribute("Source", publisherID);
       n.putAttribute("Count", i);
       n.putAttribute("Junk", "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.");
-      try { pd.publish(n); } catch(Exception e) { e.printStackTrace(); }
+      try { hd.publish(n); } catch(Exception e) { e.printStackTrace(); }
     }
   }
   
   /**
    * Subscriber mode
    */
-  public void subscribe(final HierarchicalDispatcher sd) {
+  public void subscribe() {
     Runtime.getRuntime().addShutdownHook(new Thread() {
       public void run() {
-        sd.shutdown();
+        hd.shutdown();
       }
     });
     
     Filter f = new Filter();
-    try { sd.subscribe(f, this); } catch(Exception e) { e.printStackTrace(); }
+    try { hd.subscribe(f, this); } catch(Exception e) { e.printStackTrace(); }
     System.err.println("Listening.");
   }
   
@@ -95,7 +87,7 @@ public class FourHDTwoPublisher implements Notifiable, Runnable {
     // get the count
     if(n.getAttribute("Count").longValue() != (++lastReceived[index])) {
       System.err.println("FAIL: Received " +
-      n.getAttribute("Count").longValue() + " for source " + index +
+      n.getAttribute("Count").longValue() + " for source " + index + 
       ", was expecting " + (lastReceived[index] - 1));
       System.exit(-1);
     }
