@@ -1,4 +1,4 @@
-package psl.events.siena.tests;
+package psl.events.siena.tests.ordering;
 
 import siena.*;
 
@@ -8,18 +8,18 @@ import siena.*;
  * @author Janak J Parekh
  * @version $Revision$
  */
-public class OrderTestSingleJVM implements Notifiable {
+public class SingleHD implements Notifiable {
   public static final int numNotifications = 5000;
   public long lastReceived = -1;
   
   public static void main(String[] args) {
-    new OrderTestSingleJVM();
+    new SingleHD();
   }
 
   /**
    * CTOR.
    */
-  public OrderTestSingleJVM() {
+  public SingleHD() {
     HierarchicalDispatcher hd = new HierarchicalDispatcher();
     Filter f = new Filter();
     try { hd.subscribe(f, this); } catch(Exception e) { e.printStackTrace(); }
