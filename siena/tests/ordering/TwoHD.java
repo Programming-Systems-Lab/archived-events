@@ -3,18 +3,18 @@ package psl.events.siena.tests.ordering;
 import siena.*;
 
 /**
- * Ordering test for one HD with publisher, thinClient with subscriber.
+ * Ordering test for two HD's (one publisher, one subscriber).
  *
  * @author Janak J Parekh
  * @version $Revision$
  */
-public class OneHDOneThin implements Notifiable {
+public class TwoHD implements Notifiable {
   public static final int numNotifications = 5000;
   public long lastReceived = -1;
   
   public static void main(String[] args) {
     if(args.length == 0) {
-      System.err.println("usage: java OrderTestOneHDOneThin "+
+      System.err.println("usage: java psl.events.siena.tests.ordering.TwoHD " +
       "<-p SENP URL of subscriber|-s port>");
       System.err.println("\t-p implies publisher");
       System.err.println("\t-s implies subscriber");
@@ -22,20 +22,21 @@ public class OneHDOneThin implements Notifiable {
     }
     
     if(args[0].equals("-p")) {
-      new OneHDOneThin(args[1]);
+      new TwoHD(args[1]);
     } else {
-      new OneHDOneThin(Short.parseShort(args[1]));
+      new TwoHD(Short.parseShort(args[1]));
     }
   }
   
   /**
    * CTOR for publisher mode
    */
-  public OneHDOneThin(String subscriberHost) {
-    ThinClient tc = null;
+  public TwoHD(String subscriberHost) {
+    HierarchicalDispatcher hd = null;
     try {
-      tc = new ThinClient(subscriberHost);
-      tc.setReceiver(new TCPPacketReceiver(0));
+      hd = new HierarchicalDispatcher();
+      hd.setReceiver(new TCPPacketReceiver(0));
+      hd.setMaster(subscriberHost);
     } catch(Exception e) { e.printStackTrace(); }
     
     Notification n = null;
@@ -43,14 +44,14 @@ public class OneHDOneThin implements Notifiable {
       n = new Notification();
       n.putAttribute("Count", i);
       n.putAttribute("Junk", "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.");
-      try { tc.publish(n); } catch(Exception e) { e.printStackTrace(); }
+      try { hd.publish(n); } catch(Exception e) { e.printStackTrace(); }
     }
   }
   
   /**
    * CTOR for subscriber mode
    */
-  public OneHDOneThin(short port) {
+  public TwoHD(short port) {
     final HierarchicalDispatcher hd = new HierarchicalDispatcher();
     
     try {
