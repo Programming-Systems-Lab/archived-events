@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by phil gross (columbia university) -->
+<xs:schema targetNamespace="http://www.psl.cs.columbia.edu/2001/12/DASADA-Arch-Mutation-Schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.psl.cs.columbia.edu/2001/12/DASADA-Arch-Mutation-Schema" xmlns:instance="http://www.ics.uci.edu/pub/arch/xArch/instance.xsd" xmlns:properties="http://www.cs.cmu.edu/~acme/pub/xAcme/properties.xsd" xmlns:acmeproperties="http://www.cs.cmu.edu/~acme/pub/xAcme/acmeProperties.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.cs.cmu.edu/~acme/pub/xAcme/properties.xsd" schemaLocation="http://www.cs.cmu.edu/~acme/pub/xAcme/properties.xsd"/>
+	<xs:import namespace="http://www.cs.cmu.edu/~acme/pub/xAcme/acmeProperties.xsd" schemaLocation="http://www.cs.cmu.edu/~acme/pub/xAcme/acmeProperties.xsd"/>
+	<xs:element name="dasada-architecture-mutation">
+		<xs:annotation>
+			<xs:documentation>SOAP Block describing architecturally significant changes</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="created">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:choice>
+								<xs:element name="newComponent" type="instance:ComponentInstance"/>
+								<xs:element name="newConnector" type="instance:ConnectorInstance"/>
+								<xs:element name="newInterface" type="instance:InterfaceInstance"/>
+								<xs:element name="newProperty" type="properties:Property"/>
+								<xs:element name="newSubArch" type="instance:SubArchitecture"/>
+								<xs:element name="newBinding" type="instance:InterfaceInstanceMapping"/>
+								<xs:element name="newGauge">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="name" type="instance:XMLLink"/>
+											<xs:element name="type" type="xs:string"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:choice>
+							<xs:element name="context" type="instance:XMLLink"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="deleted">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="deletedComponent" type="instance:XMLLink"/>
+							<xs:element name="deletedConnector" type="instance:XMLLink"/>
+							<xs:element name="deletedInterface" type="instance:XMLLink"/>
+							<xs:element name="deletedProperty" type="instance:XMLLink"/>
+							<xs:element name="deletedSubArch" type="instance:XMLLink"/>
+							<xs:element name="deletedBinding" type="instance:XMLLink"/>
+							<xs:element name="deletedGauge" type="instance:XMLLink"/>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="attached">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="attachedConnector">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="roleName" type="instance:XMLLink"/>
+										<xs:element name="portName" type="instance:XMLLink"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="attachedGauge">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string"/>
+										<xs:element name="property" type="instance:XMLLink"/>
+										<xs:element name="mapping" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="detached">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="detachedConnector">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="roleName" type="instance:XMLLink"/>
+										<xs:element name="portName" type="instance:XMLLink"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="detachedGauge">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string"/>
+										<xs:element name="property" type="instance:XMLLink"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="changed">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="changedPropertyValue">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="propertyValue" type="acmeproperties:PropertyValue"/>
+										<xs:element name="property" type="instance:XMLLink"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.0 U (http://www.xmlspy.com) by Phil G (CU) -->
+<xs:schema targetNamespace="http://www.psl.cs.columbia.edu/2001/12/DASADA-Function-Schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.psl.cs.columbia.edu/2001/12/DASADA-Function-Schema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="dasada-function-call" type="DasadaFunctionCallType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Variable">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="value" type="xs:anyType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DasadaFunctionCallType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="package" type="xs:string" minOccurs="0"/>
+			<xs:element name="returnValue" type="Variable"/>
+			<xs:element name="parameters">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="parameter" type="Variable" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="this" type="Variable" minOccurs="0"/>
+			<xs:element name="exceptionChain" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="exception" type="Exception" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Exception">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="message" type="xs:string" minOccurs="0"/>
+			<xs:element name="lineNumber" type="xs:positiveInteger" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

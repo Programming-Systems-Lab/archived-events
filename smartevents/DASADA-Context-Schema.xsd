@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by Phil G (CU) -->
+<xs:schema targetNamespace="http://www.psl.cs.columbia.edu/2001/12/DASADA-Context-Schema" xmlns:dcs="http://www.psl.cs.columbia.edu/2001/12/DASADA-Context-Schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.psl.cs.columbia.edu/2001/12/DASADA-Context-Schema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="dasada-context" type="DasadaContextType">
+		<xs:annotation>
+			<xs:documentation>Context information for a probe event</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:simpleType name="TriggerType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Push"/>
+			<xs:enumeration value="Pull"/>
+			<xs:enumeration value="Periodic"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ResourceLocationType">
+		<xs:annotation>
+			<xs:documentation>specific resource id (ip/port or location string)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ip-address" type="xs:string"/>
+			<xs:element name="ip-port" type="xs:positiveInteger"/>
+			<xs:element name="location" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessInfoType">
+		<xs:sequence>
+			<xs:element name="pid" type="xs:positiveInteger"/>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DasadaContextType">
+		<xs:sequence>
+			<xs:element name="source">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="host" type="ResourceLocationType" minOccurs="0"/>
+						<xs:element name="adl" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="entitySystem" type="xs:string"/>
+									<xs:element name="entityName" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="sw-env" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="procInfo" type="ProcessInfoType"/>
+									<xs:element name="threadInfo" type="ProcessInfoType" minOccurs="0"/>
+									<xs:element name="stack" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="stackFrame" type="ProcessInfoType" maxOccurs="unbounded"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ordering">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="timestamp" type="xs:dateTime" minOccurs="0"/>
+						<xs:element name="seqNum" type="xs:long" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="version" type="xs:string" minOccurs="0"/>
+			<xs:element name="focus" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="trigger" type="TriggerType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
