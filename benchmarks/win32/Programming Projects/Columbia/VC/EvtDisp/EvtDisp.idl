@@ -1,0 +1,40 @@
+// EvtDisp.idl : IDL source for EvtDisp.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (EvtDisp.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(D0A4B74F-CCB1-4E73-898B-E6F2FA9F7652),
+		async_uuid(CC8F5CC9-3CB4-456e-AA1B-9CDFE09A8836),
+		helpstring("IAMTSEvtDisp Interface"),
+		pointer_default(unique)
+	]
+	interface IAMTSEvtDisp : IUnknown
+	{
+		//[helpstring("method FireEvent")] HRESULT FireEvent([in] BSTR bstrData);
+		[helpstring("method FireDirectedEvent")] HRESULT FireDirectedEvent([in] BSTR bstrData, [in] BSTR bstrDest);
+	};
+
+[
+	uuid(BFC05A04-2D0C-412C-A679-7C0F184F4FD3),
+	version(1.0),
+	helpstring("EvtDisp 1.0 Type Library")
+]
+library EVTDISPLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(F692437D-8029-452E-A60B-3D1490C62960),
+		helpstring("AMTSEvtDisp Class")
+	]
+	coclass AMTSEvtDisp
+	{
+		[default] interface IAMTSEvtDisp;
+	};
+};

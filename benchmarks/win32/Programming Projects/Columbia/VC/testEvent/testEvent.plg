@@ -1,0 +1,119 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: testEvent - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "midl.exe /tlb ".\testEvent.tlb" /h "testEvent.h" /iid "testEvent_i.c" /Oicf "C:\Programming Projects\Columbia\VC\testEvent\testEvent.idl""
+Creating command line "rc.exe /l 0x409 /fo"obj/testEvent.res" /d "_DEBUG" /d "_AFXDLL" "C:\Programming Projects\Columbia\VC\testEvent\testEvent.rc"" 
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP11D.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"obj/testEvent.pch" /Yu"stdafx.h" /Fo"obj/" /Fd"obj/" /FD /GZ /c 
+"C:\Programming Projects\Columbia\VC\testEvent\AMTSTest.cpp"
+"C:\Programming Projects\Columbia\VC\testEvent\testEvent.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP11D.tmp" 
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP11E.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"obj/testEvent.pch" /Yc"stdafx.h" /Fo"obj/" /Fd"obj/" /FD /GZ /c 
+"C:\Programming Projects\Columbia\VC\testEvent\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP11E.tmp" 
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP11F.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:yes /pdb:"..\..\lib/testEvent.pdb" /debug /machine:I386 /def:".\testEvent.def" /out:"..\..\bin/testEvent.dll" /implib:"..\..\lib/testEvent.lib" /pdbtype:sept 
+".\obj\AMTSTest.obj"
+".\obj\StdAfx.obj"
+".\obj\testEvent.obj"
+".\obj\testEvent.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP11F.tmp"
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP120.bat" with contents
+[
+@echo off
+regsvr32 /s /c "\Programming Projects\Columbia\bin\testEvent.dll"
+echo regsvr32 exec. time > ".\..\..\lib\regsvr32.trg"
+]
+Creating command line "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP120.bat"
+Creating Type Library...
+Microsoft (R) 32b/64b MIDL Compiler Version 5.03.0280 
+Copyright (c) Microsoft Corp 1991-1999. All rights reserved.
+Processing C:\Programming Projects\Columbia\VC\testEvent\testEvent.idl
+testEvent.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\oaidl.idl
+oaidl.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\objidl.idl
+objidl.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\unknwn.idl
+unknwn.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\wtypes.idl
+wtypes.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\basetsd.h
+basetsd.h
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\guiddef.h
+guiddef.h
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\ocidl.idl
+ocidl.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\oleidl.idl
+oleidl.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\servprov.idl
+servprov.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\urlmon.idl
+urlmon.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\msxml.idl
+msxml.idl
+64 bit Processing C:\Programming Projects\Columbia\VC\testEvent\testEvent.idl
+testEvent.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\oaidl.idl
+oaidl.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\objidl.idl
+objidl.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\unknwn.idl
+unknwn.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\wtypes.idl
+wtypes.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\basetsd.h
+basetsd.h
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\guiddef.h
+guiddef.h
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\ocidl.idl
+ocidl.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\oleidl.idl
+oleidl.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\servprov.idl
+servprov.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\urlmon.idl
+urlmon.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\msxml.idl
+msxml.idl
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+AMTSTest.cpp
+testEvent.cpp
+Generating Code...
+Linking...
+   Creating library ..\..\lib/testEvent.lib and object ..\..\lib/testEvent.exp
+<h3>Output Window</h3>
+Performing registration
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP13C.bat" with contents
+[
+@echo off
+copy testEvent.tlb ..\..\bin
+c:\winnt\system32\com\comrereg.exe
+]
+Creating command line "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP13C.bat"
+
+        1 file(s) copied.
+          Refresh completed.
+
+
+
+<h3>Results</h3>
+testEvent.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

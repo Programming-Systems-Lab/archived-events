@@ -1,0 +1,18 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (1130af1b).
+//
+// test.tli
+//
+// Wrapper implementations for Win32 type library test.tlb
+// compiler-generated file created 10/08/01 at 17:15:56 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface IAMTSMySum wrapper method implementations
+//
+
+inline HRESULT IAMTSMySum::DoSomething ( _bstr_t bstrData ) {
+    HRESULT _hr = raw_DoSomething(bstrData);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}

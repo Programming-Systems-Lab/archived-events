@@ -1,0 +1,70 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (1130af1b).
+//
+// test.tlh
+//
+// C++ source equivalent of Win32 type library test.tlb
+// compiler-generated file created 10/08/01 at 17:15:56 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ AMTSMySum;
+struct __declspec(uuid("2690a5eb-b9c8-4ba2-9b83-9a3ab04b0938"))
+/* interface */ IAMTSMySum;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IAMTSMySum, __uuidof(IAMTSMySum));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("afb586c3-2f68-495f-9ead-65b35d6c2a57"))
+AMTSMySum;
+    // [ default ] interface IAMTSMySum
+
+struct __declspec(uuid("2690a5eb-b9c8-4ba2-9b83-9a3ab04b0938"))
+IAMTSMySum : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT DoSomething (
+        _bstr_t bstrData );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_DoSomething (
+        BSTR bstrData ) = 0;
+};
+
+//
+// Named GUID constants initializations
+//
+
+extern "C" const GUID __declspec(selectany) LIBID_TESTLib =
+    {0xdf052683,0x9af0,0x41bb,{0x8d,0xe8,0xcb,0x18,0xb0,0x6c,0x10,0xf2}};
+extern "C" const GUID __declspec(selectany) CLSID_AMTSMySum =
+    {0xafb586c3,0x2f68,0x495f,{0x9e,0xad,0x65,0xb3,0x5d,0x6c,0x2a,0x57}};
+extern "C" const GUID __declspec(selectany) IID_IAMTSMySum =
+    {0x2690a5eb,0xb9c8,0x4ba2,{0x9b,0x83,0x9a,0x3a,0xb0,0x4b,0x09,0x38}};
+
+//
+// Wrapper method implementations
+//
+
+#include "test.tli"
+
+#pragma pack(pop)

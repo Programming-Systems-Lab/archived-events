@@ -1,0 +1,23 @@
+HKCR
+{
+	EvtDisp.ServerCallObject.1 = s 'ServerCallObject Class'
+	{
+		CLSID = s '{4CFF0AAF-E2C1-4584-BD6E-DA7F94A6CDA8}'
+	}
+	EvtDisp.ServerCallObject = s 'ServerCallObject Class'
+	{
+		CLSID = s '{4CFF0AAF-E2C1-4584-BD6E-DA7F94A6CDA8}'
+		CurVer = s 'EvtDisp.ServerCallObject.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4CFF0AAF-E2C1-4584-BD6E-DA7F94A6CDA8} = s 'ServerCallObject Class'
+		{
+			ProgID = s 'EvtDisp.ServerCallObject.1'
+			VersionIndependentProgID = s 'EvtDisp.ServerCallObject'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '{FE72190C-8E08-49A1-AB3E-2E90E37C3F15}'
+			'TypeLib' = s '{BFC05A04-2D0C-412C-A679-7C0F184F4FD3}'
+		}
+	}
+}

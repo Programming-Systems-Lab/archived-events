@@ -1,0 +1,26 @@
+HKCR
+{
+	TestSubscriber.AMTSTestSubscriber.1 = s 'AMTSTestSubscriber Class'
+	{
+		CLSID = s '{1F487EC0-2E2C-4945-90DD-BF7F39CE2835}'
+	}
+	TestSubscriber.AMTSTestSubscriber = s 'AMTSTestSubscriber Class'
+	{
+		CLSID = s '{1F487EC0-2E2C-4945-90DD-BF7F39CE2835}'
+		CurVer = s 'TestSubscriber.AMTSTestSubscriber.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1F487EC0-2E2C-4945-90DD-BF7F39CE2835} = s 'AMTSTestSubscriber Class'
+		{
+			ProgID = s 'TestSubscriber.AMTSTestSubscriber.1'
+			VersionIndependentProgID = s 'TestSubscriber.AMTSTestSubscriber'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Neutral'
+			}
+			'TypeLib' = s '{F53D7C7B-20CE-4879-A31D-51DE2BBB06AF}'
+		}
+	}
+}

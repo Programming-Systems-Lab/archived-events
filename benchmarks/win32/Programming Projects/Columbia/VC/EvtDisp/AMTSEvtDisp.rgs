@@ -1,0 +1,23 @@
+HKCR
+{
+	EvtDisp.AMTSEvtDisp.1 = s 'AMTSEvtDisp Class'
+	{
+		CLSID = s '{F692437D-8029-452E-A60B-3D1490C62960}'
+	}
+	EvtDisp.AMTSEvtDisp = s 'AMTSEvtDisp Class'
+	{
+		CLSID = s '{F692437D-8029-452E-A60B-3D1490C62960}'
+		CurVer = s 'EvtDisp.AMTSEvtDisp.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F692437D-8029-452E-A60B-3D1490C62960} = s 'AMTSEvtDisp Class'
+		{
+			ProgID = s 'EvtDisp.AMTSEvtDisp.1'
+			VersionIndependentProgID = s 'EvtDisp.AMTSEvtDisp'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '{FE72190C-8E08-49A1-AB3E-2E90E37C3F15}'
+			'TypeLib' = s '{BFC05A04-2D0C-412C-A679-7C0F184F4FD3}'
+		}
+	}
+}

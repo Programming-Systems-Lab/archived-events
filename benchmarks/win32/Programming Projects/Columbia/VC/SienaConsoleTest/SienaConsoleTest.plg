@@ -1,0 +1,60 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SienaConsoleTest - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP128.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "USING_WIN32" /D "USING_VC6" /FR"obj/" /Fo"obj/" /Fd"obj/" /FD /GZ /c 
+"C:\Programming Projects\Columbia\VC\siena\Comm.cpp"
+"C:\Programming Projects\Columbia\VC\siena\SENP.cpp"
+"C:\Programming Projects\Columbia\VC\siena\Siena.cpp"
+"C:\Programming Projects\Columbia\VC\SienaConsoleTest\SienaConsoleTest.cpp"
+"C:\Programming Projects\Columbia\VC\siena\SienaId.cpp"
+"C:\Programming Projects\Columbia\VC\siena\ThinClient.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP128.tmp" 
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP129.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "USING_WIN32" /D "USING_VC6" /FR"obj/" /Fp"obj/SienaConsoleTest.pch" /Yc"stdafx.h" /Fo"obj/" /Fd"obj/" /FD /GZ /c 
+"C:\Programming Projects\Columbia\VC\SienaConsoleTest\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP129.tmp" 
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP12A.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib Ws2_32.lib /nologo /subsystem:console /incremental:yes /pdb:"..\..\bin/SienaConsoleTest.pdb" /debug /machine:I386 /out:"..\..\bin/SienaConsoleTest.exe" /pdbtype:sept 
+".\obj\Comm.obj"
+".\obj\SENP.obj"
+".\obj\Siena.obj"
+".\obj\SienaConsoleTest.obj"
+".\obj\SienaId.obj"
+".\obj\StdAfx.obj"
+".\obj\ThinClient.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP12A.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+Comm.cpp
+SENP.cpp
+Siena.cpp
+SienaConsoleTest.cpp
+SienaId.cpp
+ThinClient.cpp
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"..\..\bin/SienaConsoleTest.bsc"  ".\obj\StdAfx.sbr" ".\obj\Comm.sbr" ".\obj\SENP.sbr" ".\obj\Siena.sbr" ".\obj\SienaConsoleTest.sbr" ".\obj\SienaId.sbr" ".\obj\ThinClient.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+SienaConsoleTest.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

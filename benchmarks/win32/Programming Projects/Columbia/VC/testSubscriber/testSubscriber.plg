@@ -1,0 +1,119 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: testSubscriber - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "midl.exe /tlb ".\testSubscriber.tlb" /h "testSubscriber.h" /iid "testSubscriber_i.c" /Oicf "C:\Programming Projects\Columbia\VC\testSubscriber\testSubscriber.idl""
+Creating command line "rc.exe /l 0x409 /fo"obj/testSubscriber.res" /d "_DEBUG" /d "_AFXDLL" "C:\Programming Projects\Columbia\VC\testSubscriber\testSubscriber.rc"" 
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSPE1.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"obj/testSubscriber.pch" /Yu"stdafx.h" /Fo"obj/" /Fd"obj/" /FD /GZ /c 
+"C:\Programming Projects\Columbia\VC\testSubscriber\AMTSTestSubscriber.cpp"
+"C:\Programming Projects\Columbia\VC\testSubscriber\testSubscriber.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSPE1.tmp" 
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSPE2.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"obj/testSubscriber.pch" /Yc"stdafx.h" /Fo"obj/" /Fd"obj/" /FD /GZ /c 
+"C:\Programming Projects\Columbia\VC\testSubscriber\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSPE2.tmp" 
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSPE3.tmp" with contents
+[
+mtx.lib mtxguid.lib delayimp.lib ..\..\lib\common.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"..\..\lib/testSubscriber.pdb" /debug /machine:I386 /def:".\testSubscriber.def" /out:"..\..\bin/testSubscriber.dll" /implib:"..\..\lib/testSubscriber.lib" /pdbtype:sept 
+".\obj\AMTSTestSubscriber.obj"
+".\obj\StdAfx.obj"
+".\obj\testSubscriber.obj"
+".\obj\testSubscriber.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSPE3.tmp"
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSPE4.bat" with contents
+[
+@echo off
+regsvr32 /s /c "\Programming Projects\Columbia\bin\testSubscriber.dll"
+echo regsvr32 exec. time > ".\..\..\lib\regsvr32.trg"
+]
+Creating command line "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSPE4.bat"
+Creating Type Library...
+Microsoft (R) 32b/64b MIDL Compiler Version 5.03.0280 
+Copyright (c) Microsoft Corp 1991-1999. All rights reserved.
+Processing C:\Programming Projects\Columbia\VC\testSubscriber\testSubscriber.idl
+testSubscriber.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\oaidl.idl
+oaidl.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\objidl.idl
+objidl.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\unknwn.idl
+unknwn.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\wtypes.idl
+wtypes.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\basetsd.h
+basetsd.h
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\guiddef.h
+guiddef.h
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\ocidl.idl
+ocidl.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\oleidl.idl
+oleidl.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\servprov.idl
+servprov.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\urlmon.idl
+urlmon.idl
+Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\msxml.idl
+msxml.idl
+64 bit Processing C:\Programming Projects\Columbia\VC\testSubscriber\testSubscriber.idl
+testSubscriber.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\oaidl.idl
+oaidl.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\objidl.idl
+objidl.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\unknwn.idl
+unknwn.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\wtypes.idl
+wtypes.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\basetsd.h
+basetsd.h
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\guiddef.h
+guiddef.h
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\ocidl.idl
+ocidl.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\oleidl.idl
+oleidl.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\servprov.idl
+servprov.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\urlmon.idl
+urlmon.idl
+64 bit Processing C:\PROGRAM FILES\MICROSOFT SDK\INCLUDE\msxml.idl
+msxml.idl
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+AMTSTestSubscriber.cpp
+testSubscriber.cpp
+Generating Code...
+Linking...
+   Creating library ..\..\lib/testSubscriber.lib and object ..\..\lib/testSubscriber.exp
+<h3>Output Window</h3>
+Performing registration
+Creating temporary file "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP100.bat" with contents
+[
+@echo off
+copy testSubscriber.tlb ..\..\bin
+c:\winnt\system32\com\comrereg.exe
+]
+Creating command line "C:\DOCUME~1\rg2023\LOCALS~1\Temp\RSP100.bat"
+
+        1 file(s) copied.
+          Refresh completed.
+
+
+
+<h3>Results</h3>
+testSubscriber.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

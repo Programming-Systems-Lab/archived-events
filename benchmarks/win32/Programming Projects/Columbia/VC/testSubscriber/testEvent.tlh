@@ -1,0 +1,57 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (eb0a4f5d).
+//
+// testEvent.tlh
+//
+// C++ source equivalent of Win32 type library C:\PROGRAMMING PROJECTS\COLUMBIA\bin\testEvent.dll
+// compiler-generated file created 11/16/01 at 10:53:58 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ AMTSTest;
+struct __declspec(uuid("44091ff9-cb08-4dd6-943b-093e7f339794"))
+/* dual interface */ IAMTSTest;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IAMTSTest, __uuidof(IAMTSTest));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("0d0c9fac-76af-4723-8cf1-58d29e7de3fe"))
+AMTSTest;
+    // [ default ] interface IAMTSTest
+
+struct __declspec(uuid("44091ff9-cb08-4dd6-943b-093e7f339794"))
+IAMTSTest : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall TestCall (
+        BSTR bstrData ) = 0;
+};
+
+//
+// Named GUID constants initializations
+//
+
+extern "C" const GUID __declspec(selectany) LIBID_TESTEVENTLib =
+    {0x6a03d7a5,0xd8af,0x47f6,{0xb3,0x28,0x10,0x83,0xe1,0x40,0xfa,0xe5}};
+extern "C" const GUID __declspec(selectany) CLSID_AMTSTest =
+    {0x0d0c9fac,0x76af,0x4723,{0x8c,0xf1,0x58,0xd2,0x9e,0x7d,0xe3,0xfe}};
+extern "C" const GUID __declspec(selectany) IID_IAMTSTest =
+    {0x44091ff9,0xcb08,0x4dd6,{0x94,0x3b,0x09,0x3e,0x7f,0x33,0x97,0x94}};
+
+#pragma pack(pop)

@@ -1,0 +1,26 @@
+HKCR
+{
+	TestEvent.AMTSTest.1 = s 'AMTSTest Class'
+	{
+		CLSID = s '{0D0C9FAC-76AF-4723-8CF1-58D29E7DE3FE}'
+	}
+	TestEvent.AMTSTest = s 'AMTSTest Class'
+	{
+		CLSID = s '{0D0C9FAC-76AF-4723-8CF1-58D29E7DE3FE}'
+		CurVer = s 'TestEvent.AMTSTest.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0D0C9FAC-76AF-4723-8CF1-58D29E7DE3FE} = s 'AMTSTest Class'
+		{
+			ProgID = s 'TestEvent.AMTSTest.1'
+			VersionIndependentProgID = s 'TestEvent.AMTSTest'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{6A03D7A5-D8AF-47F6-B328-1083E140FAE5}'
+		}
+	}
+}

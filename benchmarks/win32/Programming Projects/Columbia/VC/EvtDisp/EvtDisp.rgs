@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{FE72190C-8E08-49A1-AB3E-2E90E37C3F15} = s 'EvtDisp'
+		'EvtDisp.EXE'
+		{
+			val AppID = s {FE72190C-8E08-49A1-AB3E-2E90E37C3F15}
+		}
+	}
+}

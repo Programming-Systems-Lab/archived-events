@@ -1,0 +1,39 @@
+// testSubscriber.idl : IDL source for testSubscriber.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (testSubscriber.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(BDDC1F3B-F17A-46C6-963B-E7C7BEAAE706),
+		dual,
+		helpstring("IAMTSTestSubscriber Interface"),
+		pointer_default(unique)
+	]
+	interface IAMTSTestSubscriber : IDispatch
+	{
+	};
+
+[
+	uuid(F53D7C7B-20CE-4879-A31D-51DE2BBB06AF),
+	version(1.0),
+	helpstring("testSubscriber 1.0 Type Library")
+]
+library TESTSUBSCRIBERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("..\..\bin\testEvent.tlb");
+
+	[
+		uuid(1F487EC0-2E2C-4945-90DD-BF7F39CE2835),
+		helpstring("AMTSTestSubscriber Class")
+	]
+	coclass AMTSTestSubscriber
+	{
+		[default] interface IAMTSTestSubscriber;
+	};
+};

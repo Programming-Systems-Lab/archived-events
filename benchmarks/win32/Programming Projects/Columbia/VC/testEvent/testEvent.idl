@@ -1,0 +1,39 @@
+// testEvent.idl : IDL source for testEvent.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (testEvent.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(44091FF9-CB08-4DD6-943B-093E7F339794),
+		dual,
+		helpstring("IAMTSTest Interface"),
+		pointer_default(unique)
+	]
+	interface IAMTSTest : IDispatch
+	{
+		[id(1), helpstring("method TestCall")] HRESULT TestCall([in] BSTR bstrData);
+	};
+
+[
+	uuid(6A03D7A5-D8AF-47F6-B328-1083E140FAE5),
+	version(1.0),
+	helpstring("testEvent 1.0 Type Library")
+]
+library TESTEVENTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(0D0C9FAC-76AF-4723-8CF1-58D29E7DE3FE),
+		helpstring("AMTSTest Class")
+	]
+	coclass AMTSTest
+	{
+		[default] interface IAMTSTest;
+	};
+};
