@@ -27,7 +27,6 @@ public class AllSubscriber implements Notifiable {
   public AllSubscriber(String sienaHost) {
     hd = new HierarchicalDispatcher();
     try {
-      hd.setReceiver(new TCPPacketReceiver(0));
       hd.setMaster(sienaHost);
     } catch(Exception e) {
       e.printStackTrace();

@@ -23,7 +23,6 @@ public class TestPublisher {
     }
     hd = new HierarchicalDispatcher();
     try {
-      hd.setReceiver(new TCPPacketReceiver(0));
       hd.setMaster(args[0]);
     } catch(Exception e) {
       e.printStackTrace();
