@@ -1,6 +1,5 @@
 import org.elvin.je4.*;
 
-//test receiving speed of elvin
 public class BenchConsumer implements NotificationListener {
     int got = 0;
     int limit;
@@ -18,7 +17,7 @@ public class BenchConsumer implements NotificationListener {
 	if ((got % limit) == 0) {
 	    long result = System.currentTimeMillis() - start;
 	    System.out.println("Elapsed time: " + result + " Receive speed: " + ((limit * 1000.0)/result));
-	    
+	    start = System.currentTimeMillis();
 	    //System.exit(0);
 	}
 	    
