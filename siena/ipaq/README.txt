@@ -1,0 +1,3 @@
+Siena 1.3 for Personal Java
+
+These are modified java files of Siena 1.3 that compile under JDK1.1 and hence, work on Personal Java. You must have collections.jar in your classpath to compile with JDK1.1. Afterwards, you can copy the class files to the iPaq and run with Jeode as long as the iPaq has collections.jar and Jeode has it in the classpath. Follow the directions for running java programs on the iPaq. (Basically, this means creating a shortcut on the iPaq).
